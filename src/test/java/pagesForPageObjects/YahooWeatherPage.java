@@ -1,36 +1,42 @@
 package pagesForPageObjects;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
+/*import org.openqa.selenium.By;*/
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Condition.*;
+/*import static com.codeborne.selenide.Selectors.byText;*/
+import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+/*import static org.junit.jupiter.api.Assertions.assertEquals;*/
 
 public class YahooWeatherPage {
-    String baseUrl = ("https://yahoo.com/");
-    String country = "Greece";
+    String baseUrl = ("https://www.yahoo.com/");
     String city = "Athens";
     String dataUnit = "metric";
 
     @Step("Open page with yahoo.com")
     public void openBaseUrl(){
         open(baseUrl);
+        $("#ybar-logo").shouldBe(visible);
+    }
+
+    @Step("Select Location")
+    public void selectLocation() {
+        $(byTitle("View your Locations")).click();
+        $("[id=weather-autocomplete]").val(city);
+        $$("li").findBy(text("Athens, Attica, Greece")).click();
+        $(".weather-card h4").shouldHave(text("Athens"));
+       /* $(byText("Change location")).click();
+        $(".search-input").val(city).pressEnter();
+        $$("ul button").findBy(attribute("data-country", country)).click();*/
     }
 
     @Step("Open page with weather")
     public void openWeatherPage() {
-        $(By.linkText("More...")).click();
-        $(By.linkText("Weather")).click();
-    }
-    @Step("Select Location")
-    public void selectLocation() {
-        $(byText("Change location")).click();
-        $(".search-input").val(city).pressEnter();
-        $$("ul button").findBy(attribute("data-country", country)).click();
+         $(".weather-card-content a").shouldHave(text("See More")).click();
+         $(".location h1").shouldHave(text("Athens"));
     }
 
     @Step("Set data-unit for temperature")

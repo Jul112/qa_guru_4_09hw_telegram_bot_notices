@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.jupiter.api.Disabled;
+/*import org.junit.jupiter.api.Disabled;*/
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pagesForPageObjects.YahooWeatherPage;
@@ -12,8 +12,8 @@ public class YahooWeatherTest extends TestBase {
     @DisplayName("Air temperature is less than zero")
     void yahooWeatherTemperatureLessZero() {
         yahooWeatherPage.openBaseUrl();
-        yahooWeatherPage.openWeatherPage();
         yahooWeatherPage.selectLocation();
+        yahooWeatherPage.openWeatherPage();
         yahooWeatherPage.setMetricDataUnit();
         yahooWeatherPage.assertThatTemperatureLessZero();
     }
@@ -22,8 +22,8 @@ public class YahooWeatherTest extends TestBase {
     @DisplayName("Air temperature is more than zero")
     void yahooWeatherTemperatureMoreZero() {
         yahooWeatherPage.openBaseUrl();
-        yahooWeatherPage.openWeatherPage();
         yahooWeatherPage.selectLocation();
+        yahooWeatherPage.openWeatherPage();
         yahooWeatherPage.setMetricDataUnit();
         yahooWeatherPage.assertThatTemperatureMoreZero();
     }
@@ -32,8 +32,8 @@ public class YahooWeatherTest extends TestBase {
     @DisplayName("Air temperature is zero")
     void yahooWeatherTemperatureEqualsZero() {
         yahooWeatherPage.openBaseUrl();
-        yahooWeatherPage.openWeatherPage();
         yahooWeatherPage.selectLocation();
+        yahooWeatherPage.openWeatherPage();
         yahooWeatherPage.setMetricDataUnit();
         yahooWeatherPage.assertThatTemperatureEqualsZero();
     }

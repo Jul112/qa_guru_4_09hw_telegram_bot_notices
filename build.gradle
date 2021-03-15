@@ -37,3 +37,21 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform { } // без параметров = useJUnitPlatform()
 }
+
+task cold_task(type:Test) {
+    useJUnitPlatform{
+            includeTags "cold"
+    }
+}
+
+task warm_task(type:Test) {
+    useJUnitPlatform{
+        includeTags "warm"
+    }
+}
+
+task zero_task(type:Test) {
+    useJUnitPlatform{
+        includeTags "zero"
+    }
+}

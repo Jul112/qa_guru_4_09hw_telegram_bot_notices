@@ -2,6 +2,7 @@ package tests;
 
 /*import org.junit.jupiter.api.Disabled;*/
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pagesForPageObjects.YahooWeatherPage;
 
@@ -9,6 +10,7 @@ public class YahooWeatherTest extends TestBase {
     YahooWeatherPage yahooWeatherPage = new YahooWeatherPage();
 
     @Test
+    @Tag("cold")
     @DisplayName("Air temperature is less than zero")
     void yahooWeatherTemperatureLessZero() {
         yahooWeatherPage.openBaseUrl();
@@ -19,6 +21,7 @@ public class YahooWeatherTest extends TestBase {
     }
 
     @Test
+    @Tag("warm")
     @DisplayName("Air temperature is more than zero")
     void yahooWeatherTemperatureMoreZero() {
         yahooWeatherPage.openBaseUrl();
@@ -29,6 +32,7 @@ public class YahooWeatherTest extends TestBase {
     }
 
     @Test
+    @Tag("zero")
     @DisplayName("Air temperature is zero")
     void yahooWeatherTemperatureEqualsZero() {
         yahooWeatherPage.openBaseUrl();

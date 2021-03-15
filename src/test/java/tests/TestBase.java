@@ -17,6 +17,7 @@ public class TestBase {
     @BeforeAll
     static void startOptions() {
         Configuration.startMaximized = true;
+        Configuration.browser="chrome";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         //capabilities.setCapability("enableVideo", true);

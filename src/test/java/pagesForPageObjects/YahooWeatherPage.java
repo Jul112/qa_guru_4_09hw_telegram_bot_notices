@@ -24,7 +24,8 @@ public class YahooWeatherPage {
 
     @Step("Select Location")
     public void selectLocation() {
-        $(byTitle("View your Locations")).click();
+        $("div[data-wf-toggle-target=\"#weather-location-picker-form\"] > button").click();
+        //$(byTitle("View your Locations")).click();
         $("[id=weather-autocomplete]").val(city);
         $$("li").findBy(text("Athens, Attica, Greece")).click();
         $(".weather-card h4").shouldHave(text("Athens"));

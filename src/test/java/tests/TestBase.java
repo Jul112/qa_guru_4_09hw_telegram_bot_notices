@@ -1,17 +1,17 @@
 package tests;
 
-/*import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;*/
+import com.codeborne.selenide.Configuration;
+/*import org.junit.jupiter.api.AfterAll;*/
 import org.junit.jupiter.api.AfterEach;
-/*import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeAll;
+/*import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.remote.DesiredCapabilities;*/
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static helpers.AttachmentsHelper.*;
 
 public class TestBase {
-    /*@BeforeAll
+    @BeforeAll
     static void startOptions() {
         Configuration.startMaximized = true;
         //DesiredCapabilities capabilities = new DesiredCapabilities();

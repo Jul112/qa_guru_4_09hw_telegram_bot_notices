@@ -38,19 +38,19 @@ test {
     useJUnitPlatform { } // без параметров = useJUnitPlatform()
 }
 
-task cold_task(type:Test) {
+task cold_test(type:Test) {
     useJUnitPlatform{
             includeTags "cold"
     }
 }
 
-task warm_task(type:Test) {
+task warm_test(type:Test) {
     useJUnitPlatform{
         includeTags "warm"
     }
 }
 
-task zero_task(type:Test) {
+task zero_test(type:Test) {
     useJUnitPlatform{
         includeTags "zero"
     }

@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 /*import static org.junit.jupiter.api.Assertions.assertEquals;*/
 
 public class YahooWeatherPage {
-    String baseUrl = ("https://www.yahoo.com/");
+    String baseUrl = ("https://weather.com/");
     String city = "Athens";
     String dataUnit = "metric";
 
@@ -20,12 +20,13 @@ public class YahooWeatherPage {
     public void openBaseUrl(){
         open(baseUrl);
         $("#ybar-logo").shouldBe(visible);
+        //($("#noVNC_mouse_capture_elem"))
     }
 
     @Step("Select Location")
     public void selectLocation() {
-        $("div[data-wf-toggle-target=\"#weather-location-picker-form\"] > button").click();
-        //$(byTitle("View your Locations")).click();
+        //$("div[data-wf-toggle-target=\"#weather-location-picker-form\"] > button").click();
+        $(byTitle("View your Locations")).click();
         $("[id=weather-autocomplete]").val(city);
         $$("li").findBy(text("Athens, Attica, Greece")).click();
         $(".weather-card h4").shouldHave(text("Athens"));
